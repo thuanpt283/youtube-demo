@@ -3,6 +3,7 @@ import { StyleSheet, ImageBackground, View, TextInput, ActivityIndicator} from '
 import { FlatList } from 'react-native-gesture-handler';
 import axios from 'axios';
 import Item from '../components/Item';
+import _ from 'lodash';
 
 const HomeScreen = props => {
     const [textSearch, onChangeText] = React.useState('');
@@ -179,9 +180,13 @@ const HomeScreen = props => {
           }
         }
     ]);
-
-    const _handleTextChange = (text) => {
-        onChangeText(text)
+    const _handleTextChange = _.debounce((text) => {
+        // onChangeText(text)
+        console.log(`debounce ${text}`)
+    }, 1500);
+    const _test = (text) => {
+      onChangeText(text)
+      _handleTextChange(text)
     }
     useEffect(() => {
         // axios.get("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=viewCount&q=bigbang&regionCode=VN&key=AIzaSyAeYRNmrd26QlrnQwr4kAAicRtqSRD_czs")
@@ -203,7 +208,7 @@ const HomeScreen = props => {
             autoCapitalize='none'
             placeholder='Tìm kiếm'
             placeholderTextColor='#6C7A89'
-            onChangeText={_handleTextChange.bind(this)}
+            onChangeText={_test.bind(this)}
             value={textSearch}
             />
         {isLoading ? <ActivityIndicator/> : (<FlatList
