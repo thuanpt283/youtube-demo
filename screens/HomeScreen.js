@@ -194,15 +194,15 @@ const HomeScreen = props => {
         //     setLoading(false)
         // });
         console.log(textSearch)
-    }, []);
+    }, [textSearch]);
     return (
     <ImageBackground source={require('../assets/image/bg_flowers.png')} style={styles.backroundItem}>
         <View style={styles.container}>
             <TextInput
             style={styles.search}
             autoCapitalize='none'
-            placeholder='Placeholder'
-            placeholderTextColor='white'
+            placeholder='Tìm kiếm'
+            placeholderTextColor='#6C7A89'
             onChangeText={_handleTextChange.bind(this)}
             value={textSearch}
             />
@@ -235,8 +235,9 @@ const styles = StyleSheet.create({
     },
     search:{
         height: 40,
-        borderBottomColor:'black',
-        borderBottomWidth: 1,
+        backgroundColor: 'white',
+        borderRadius: 5,
+        padding: 10,
         marginBottom: 20
     },
     item: {
