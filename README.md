@@ -8,9 +8,13 @@
 
 # Publish App
 Config file app.json allow to below:
+
 http://gyazo.cybridge.jp/0304fa1cda8825820f41ec30388d7f28
+
 Run `expo publish`
+
 Enter account Expo (if system need permission)
+
 if have Error connect ECONNREFUSED 127.0.0.1:19001 (please remove folder .expo) and then run `expo publish` again.
 
 # Build App
@@ -30,10 +34,8 @@ APK (`expo build:android -t apk`) or Android App Bundle (`expo build:android -t 
 Need Apple Developer Account.
 
 ### Note:
-(Would you like to upload a keystore or have us generate one for you?
+- (Would you like to upload a keystore or have us generate one for you? If you don't know what this means, let us handle it!
 
-If you don't know what this means, let us handle it!
+**Choose: 1(if you don't understand about it))**
 
-Choose: 1(if you don't understand about it))
-
-Time building can take a couple of minutes, even hours until that happens.
+- Time building can take a couple of minutes, even hours until that happens.
