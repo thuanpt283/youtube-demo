@@ -6,7 +6,7 @@ import Item from '../components/Item';
 import _ from 'lodash';
 
 const HomeScreen = props => {
-    const [textSearch, onChangeText] = React.useState('');
+    const [textSearch, onChangeText] = React.useState('cybridge asia');
     const [isLoading, setLoading] = useState(true);
     const [dataSearch, setData] = useState([]);
     const _handleTextChange = (text) => {
