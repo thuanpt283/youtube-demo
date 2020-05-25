@@ -1,22 +1,28 @@
 import React from 'react'
-import { StyleSheet, ImageBackground, View, TextInput, ActivityIndicator, Text} from 'react-native';
+import { StyleSheet, ImageBackground, View, Text, Dimensions} from 'react-native';
 import { WebView } from "react-native-webview";
 
 const DetailHome = props => {
-    const videoId = props.navigation.getParam('videoId');
-
+    const videoItem = props.navigation.getParam('videoItem');
+    const screenWidth = Math.round(Dimensions.get('window').width);
     return(
-        <ImageBackground source={require('../assets/image/bg_flowers.png')} style={styles.backroundItem}>
-            <View style={styles.container}>
-            <WebView
-                style={styles.WebViewStyle}
-                source={{ uri: 'https://www.youtube.com/embed/'+videoId }}
-                javaScriptEnabled={true}
-                domStorageEnabled={true}   
-                automaticallyAdjustContentInsets={false}
-            />
+         <ImageBackground source={require('../assets/image/bg_flowers.png')} style={styles.backroundItem}>
+            <View style={{ height: screenWidth*0.75 }}>
+                <WebView
+                        style={ styles.WebViewContainer }
+                        javaScriptEnabled={true}
+                        domStorageEnabled={true}
+                        source={{uri: `https://www.youtube.com/embed/${videoItem.id.videoId}` }}
+                />
             </View>
-        </ImageBackground>
+            <View style={styles.container}>
+                <View style={styles.boxWhite}>
+                    <Text style={styles.title}>{videoItem.snippet.title}</Text>
+                    <Text style={styles.channelTitle}>{videoItem.snippet.channelTitle}</Text>
+                    <Text style={styles.description}>{videoItem.snippet.description}</Text>
+                </View>
+            </View>
+        </ImageBackground> 
     )
 }
 
@@ -25,16 +31,25 @@ const styles = StyleSheet.create({
         width: '100%',
         flex: 1,
         resizeMode: 'cover',
-        justifyContent: 'center',
     },
     container: {
         flex: 1,
         paddingHorizontal: 20,
-        paddingTop: 30,
-        height: 300
+        paddingTop: 15,
+    },
+    boxWhite: {
+        backgroundColor: 'white',
+        borderRadius: 10,
+        padding: 10,
     },
     WebViewStyle: {
         marginTop: (Platform.OS == 'ios') ? 20 : 0,
+    },
+    title: {
+        fontSize: 24,
+    },
+    channelTitle: {
+        marginBottom: 15
     }
 })
 
