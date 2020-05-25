@@ -1,17 +1,19 @@
 {
   "expo": {
-    "name": "cba-app",
-    "slug": "cba-app",
+    "name": "Youtube CBA",
+    "description": "Write something you want.",
+    "slug": "youtube-cba",
+    "privacy": "public",
+    "sdkVersion": "37.0.0",
     "platforms": [
       "ios",
-      "android",
-      "web"
+      "android"
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/cba.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/cba.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -22,7 +24,13 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier": "com.test.youtube-cba",
+      "buildNumber": "1.0.0",
       "supportsTablet": true
+    },
+    "android": {
+      "package": "com.test.youtube_cba",
+      "versionCode": 1
     }
   }
 }

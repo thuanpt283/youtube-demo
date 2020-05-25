@@ -20,7 +20,6 @@ const HomeScreen = props => {
         setLoading(false)
       })
       .catch(error => {
-        console.log(error)
         setLoading(false)
       });
     }, 1500),[]);
@@ -43,7 +42,6 @@ const HomeScreen = props => {
             showsVerticalScrollIndicator={false}
             keyExtractor={( item , index) => index.toString()}
             renderItem={({item}) => <Item video={item} onClick={() => {
-                console.log(item.etag)
                 props.navigation.navigate({routeName: 'Detail', params: {
                     videoItem: item
                 }});
